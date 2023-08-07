@@ -2,8 +2,10 @@ const express = require("express");
 const app = express();
 const userRouter = require("./routes/UserRoutes");
 const noteRouter = require("./routes/noteRoutes");
+const dotenv = require("dotenv");
 const cors = require("cors");
 
+dotenv.config();
 
 const mongoose = require("mongoose");
 
@@ -16,15 +18,13 @@ app.use("/note", noteRouter);
 app.get("/", (req, res) => {
   res.send("Notes API Created by @codeguyakash!");
 });
-const PORT = 5000;
+const PORT = process.env.PORT || 4000;
 
 mongoose
-  .connect(
-    "mongodb+srv://master:jyHHCWkfqtEO40ON@cluster0.kdwj0.mongodb.net/notes_db?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGO)
   .then(() => {
     app.listen(PORT, () => {
-      console.log("Server Started on Port No." + PORT);
+      console.log(`http://localhost:${PORT}`);
     });
   })
   .catch((error) => {

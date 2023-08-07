@@ -6,6 +6,7 @@ const SECRET_KEY = "NOTESAPI";
 const signup = async (req, res) => {
   //existing user check
   const { username, email, password } = req.body;
+
   try {
     const existingUser = await userModel.findOne({ email: email });
     if (existingUser) {
@@ -29,6 +30,8 @@ const signup = async (req, res) => {
 };
 const signin = async (req, res) => {
   const { email, password } = req.body;
+  console.log(req.body);
+
   try {
     //for check user signin
     const existingUser = await userModel.findOne({ email: email });
