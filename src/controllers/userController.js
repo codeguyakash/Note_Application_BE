@@ -30,7 +30,6 @@ const signup = async (req, res) => {
 };
 const signin = async (req, res) => {
   const { email, password } = req.body;
-  console.log(req.body);
 
   try {
     //for check user signin
