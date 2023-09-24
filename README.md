@@ -3,11 +3,11 @@
 ##End Points
 
 ## Notes CRUD Opretion API's
-Read Notes GET: http://localhost:5000/note/ <br>
-Create Notes POST: http://localhost:5000/note/{data} <br>
-Update Notes PUT: http://localhost:5000/note/${id}{data} <br>
-Update Notes DELETE: http://localhost:5000/note/${id} <br>
+Read Notes GET: https://note-application-be.onrender.com/note/ <br/>
+Create Notes POST: https://note-application-be.onrender.com/note/{data} <br/>
+Update Notes PUT: https://note-application-be.onrender.com/note/${id}{data} <br/>
+Update Notes DELETE: https://note-application-be.onrender.com/note/${id} <br/>
 
 ## User Signup and Signin API's
-Signup User POST: http://localhost:5000/users/signup/{data} <br>
-Signin User POST: http://localhost:5000/users/signin/{data} <br>
+Signup User POST: https://note-application-be.onrender.com/users/signup/{data} <br/>
+Signin User POST: https://note-application-be.onrender.com/users/signin/{data} <br/>
