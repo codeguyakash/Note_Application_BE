@@ -4,7 +4,6 @@ const app = express();
 const userRouter = require('./routes/userRoutes');
 const noteRouter = require('./routes/noteRoutes');
 const cors = require('cors');
-
 const mongoose = require('mongoose');
 
 app.use(express.json());
