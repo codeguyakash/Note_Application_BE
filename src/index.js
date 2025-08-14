@@ -1,27 +1,30 @@
-const express = require("express");
+require('dotenv').config();
+const express = require('express');
 const app = express();
-const userRouter = require("./routes/userRoutes");
-const noteRouter = require("./routes/noteRoutes");
-const cors = require("cors");
+const userRouter = require('./routes/userRoutes');
+const noteRouter = require('./routes/noteRoutes');
+const cors = require('cors');
 
-
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 app.use(express.json());
 app.use(cors());
 
-app.use("/users", userRouter);
-app.use("/note", noteRouter);
+app.use('/users', userRouter);
+app.use('/note', noteRouter);
 
-app.get("/", (req, res) => {
-  res.send("Notes API Created by @codeguyakash!");
+app.get('/', (req, res) => {
+  res.send('Notes API Created by @codeguyakash!');
 });
-const PORT = 5000;
+const PORT = process.env.PORT || 2000;
+
+(async () => {
+  const { ping } = await import('keepalive-server');
+  ping(60000, 'https://note-application-be.onrender.com');
+})();
 
 mongoose
-  .connect(
-    "mongodb+srv://master:jyHHCWkfqtEO40ON@cluster0.kdwj0.mongodb.net/notes_db?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => {
     app.listen(PORT, () => {
       console.log(`http://localhost:${PORT}`);
