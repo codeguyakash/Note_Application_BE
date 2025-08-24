@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 2000;
 
 (async () => {
   const { ping } = await import('keepalive-server');
-  ping(60000, 'https://note-application-be.onrender.com');
+  ping(86400000, 'https://note-application-be.onrender.com');
 })();
 
 mongoose
